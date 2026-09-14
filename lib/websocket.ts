@@ -35,6 +35,7 @@ export class FireFlyWebSocket {
   private disconnectTimer?: NodeJS.Timeout;
   private reconnectTimer?: NodeJS.Timeout;
   private disconnectDetected = false;
+  private closing = false;
 
   constructor(
     private options: FireFlyWebSocketOptions,
@@ -44,12 +45,10 @@ export class FireFlyWebSocket {
   }
 
   private connect() {
-    // Ensure we've cleaned up any old socket
+    // Ensure we've cleaned up any old socket. close() clears the reconnect timer and marks
+    // us as closing, so clear that flag again now we are re-opening.
     this.close();
-    if (this.reconnectTimer) {
-      clearTimeout(this.reconnectTimer);
-      delete this.reconnectTimer;
-    }
+    this.closing = false;
 
     let url = `${this.options.host}/ws`;
     if (this.options.ephemeral !== undefined) {
@@ -153,6 +152,12 @@ export class FireFlyWebSocket {
   }
 
   private reconnect(msg: string) {
+    // A handler that was already in flight when close() was called must not be able to
+    // bring the socket back - unexpected-response in particular reconnects from a deferred
+    // stream flush, which can land after the close has completed.
+    if (this.closing) {
+      return;
+    }
     if (!this.reconnectTimer) {
       this.close();
       this.logger.error(`Websocket closed: ${msg}`);
@@ -186,6 +191,14 @@ export class FireFlyWebSocket {
     const closedPromise = new Promise<void>((resolve) => {
       this.closed = resolve;
     });
+    // Closing is final until connect() is called again. Without this, a reconnect that was
+    // already scheduled still fires, and a caller that has dropped its reference to this
+    // socket has no way left to stop it retrying.
+    this.closing = true;
+    if (this.reconnectTimer) {
+      clearTimeout(this.reconnectTimer);
+      delete this.reconnectTimer;
+    }
     this.clearPingTimers();
     if (this.socket) {
       try {
