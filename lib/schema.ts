@@ -26,8 +26,7 @@ export interface paths {
         };
         /** @description Gets information about a contract API, including the URLs for the OpenAPI Spec and Swagger UI for the API */
         get: operations["getContractAPIByName"];
-        /** @description The ID of the contract API */
-        put: operations["putContractAPI"];
+        put?: never;
         post?: never;
         /** @description Delete a contract API */
         delete: operations["deleteContractAPI"];
@@ -116,6 +115,23 @@ export interface paths {
         put?: never;
         /** @description Queries a method on a smart contract API. Performs a read-only query. */
         post: operations["postContractAPIQuery"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/apis/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** @description The ID of the contract API */
+        put: operations["putContractAPI"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -681,6 +697,23 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /** @description Gets an identity by its DID */
+        get: operations["getIdentityByDID"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/identities/{iid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /** @description Gets an identity by its ID */
         get: operations["getIdentityByID"];
         put?: never;
@@ -923,8 +956,7 @@ export interface paths {
         };
         /** @description Gets information about a contract API, including the URLs for the OpenAPI Spec and Swagger UI for the API */
         get: operations["getContractAPIByNameNamespace"];
-        /** @description The ID of the contract API */
-        put: operations["putContractAPINamespace"];
+        put?: never;
         post?: never;
         /** @description Delete a contract API */
         delete: operations["deleteContractAPINamespace"];
@@ -1013,6 +1045,23 @@ export interface paths {
         put?: never;
         /** @description Queries a method on a smart contract API. Performs a read-only query. */
         post: operations["postContractAPIQueryNamespace"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/namespaces/{ns}/apis/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** @description The ID of the contract API */
+        put: operations["putContractAPINamespace"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1572,6 +1621,23 @@ export interface paths {
         trace?: never;
     };
     "/namespaces/{ns}/identities/{did}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Gets an identity by its DID */
+        get: operations["getIdentityByDIDNamespace"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/namespaces/{ns}/identities/{iid}": {
         parameters: {
             query?: never;
             header?: never;
@@ -3562,157 +3628,6 @@ export interface operations {
             };
         };
     };
-    putContractAPI: {
-        parameters: {
-            query?: {
-                /** @description When true the HTTP request blocks until the message is confirmed */
-                confirm?: string;
-            };
-            header?: {
-                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
-                "Request-Timeout"?: string;
-            };
-            path: {
-                /** @description The name of the contract API */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description Reference to the FireFly Interface definition associated with the contract API */
-                    interface?: {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the FireFly interface
-                         */
-                        id?: string | null;
-                        /** @description The name of the FireFly interface */
-                        name?: string;
-                        /** @description The version of the FireFly interface */
-                        version?: string;
-                    } | null;
-                    /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                    location?: any;
-                    /** @description The name that is used in the URL to access the API */
-                    name?: string;
-                    /** @description The published name of the API within the multiparty network */
-                    networkName?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Success */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the contract API
-                         */
-                        id?: string;
-                        /** @description Reference to the FireFly Interface definition associated with the contract API */
-                        interface?: {
-                            /**
-                             * Format: uuid
-                             * @description The UUID of the FireFly interface
-                             */
-                            id?: string;
-                            /** @description The name of the FireFly interface */
-                            name?: string;
-                            /** @description The version of the FireFly interface */
-                            version?: string;
-                        };
-                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                        location?: any;
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the broadcast message that was used to publish this API to the network
-                         */
-                        message?: string;
-                        /** @description The name that is used in the URL to access the API */
-                        name?: string;
-                        /** @description The namespace of the contract API */
-                        namespace?: string;
-                        /** @description The published name of the API within the multiparty network */
-                        networkName?: string;
-                        /** @description Indicates if the API is published to other members of the multiparty network */
-                        published?: boolean;
-                        /** @description The URLs to use to access the API */
-                        urls?: {
-                            /** @description The URL to use to invoke the API */
-                            api?: string;
-                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
-                            openapi?: string;
-                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
-                            ui?: string;
-                        };
-                    };
-                };
-            };
-            /** @description Success */
-            202: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the contract API
-                         */
-                        id?: string;
-                        /** @description Reference to the FireFly Interface definition associated with the contract API */
-                        interface?: {
-                            /**
-                             * Format: uuid
-                             * @description The UUID of the FireFly interface
-                             */
-                            id?: string;
-                            /** @description The name of the FireFly interface */
-                            name?: string;
-                            /** @description The version of the FireFly interface */
-                            version?: string;
-                        };
-                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                        location?: any;
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the broadcast message that was used to publish this API to the network
-                         */
-                        message?: string;
-                        /** @description The name that is used in the URL to access the API */
-                        name?: string;
-                        /** @description The namespace of the contract API */
-                        namespace?: string;
-                        /** @description The published name of the API within the multiparty network */
-                        networkName?: string;
-                        /** @description Indicates if the API is published to other members of the multiparty network */
-                        published?: boolean;
-                        /** @description The URLs to use to access the API */
-                        urls?: {
-                            /** @description The URL to use to invoke the API */
-                            api?: string;
-                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
-                            openapi?: string;
-                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
-                            ui?: string;
-                        };
-                    };
-                };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
     deleteContractAPI: {
         parameters: {
             query?: never;
@@ -4764,6 +4679,157 @@ export interface operations {
                 };
                 content: {
                     "application/json": any;
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    putContractAPI: {
+        parameters: {
+            query?: {
+                /** @description When true the HTTP request blocks until the message is confirmed */
+                confirm?: string;
+            };
+            header?: {
+                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
+                "Request-Timeout"?: string;
+            };
+            path: {
+                /** @description The ID of the contract API */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description Reference to the FireFly Interface definition associated with the contract API */
+                    interface?: {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the FireFly interface
+                         */
+                        id?: string | null;
+                        /** @description The name of the FireFly interface */
+                        name?: string;
+                        /** @description The version of the FireFly interface */
+                        version?: string;
+                    } | null;
+                    /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                    location?: any;
+                    /** @description The name that is used in the URL to access the API */
+                    name?: string;
+                    /** @description The published name of the API within the multiparty network */
+                    networkName?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the contract API
+                         */
+                        id?: string;
+                        /** @description Reference to the FireFly Interface definition associated with the contract API */
+                        interface?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the FireFly interface
+                             */
+                            id?: string;
+                            /** @description The name of the FireFly interface */
+                            name?: string;
+                            /** @description The version of the FireFly interface */
+                            version?: string;
+                        };
+                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                        location?: any;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the broadcast message that was used to publish this API to the network
+                         */
+                        message?: string;
+                        /** @description The name that is used in the URL to access the API */
+                        name?: string;
+                        /** @description The namespace of the contract API */
+                        namespace?: string;
+                        /** @description The published name of the API within the multiparty network */
+                        networkName?: string;
+                        /** @description Indicates if the API is published to other members of the multiparty network */
+                        published?: boolean;
+                        /** @description The URLs to use to access the API */
+                        urls?: {
+                            /** @description The URL to use to invoke the API */
+                            api?: string;
+                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
+                            openapi?: string;
+                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
+                            ui?: string;
+                        };
+                    };
+                };
+            };
+            /** @description Success */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the contract API
+                         */
+                        id?: string;
+                        /** @description Reference to the FireFly Interface definition associated with the contract API */
+                        interface?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the FireFly interface
+                             */
+                            id?: string;
+                            /** @description The name of the FireFly interface */
+                            name?: string;
+                            /** @description The version of the FireFly interface */
+                            version?: string;
+                        };
+                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                        location?: any;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the broadcast message that was used to publish this API to the network
+                         */
+                        message?: string;
+                        /** @description The name that is used in the URL to access the API */
+                        name?: string;
+                        /** @description The namespace of the contract API */
+                        namespace?: string;
+                        /** @description The published name of the API within the multiparty network */
+                        networkName?: string;
+                        /** @description Indicates if the API is published to other members of the multiparty network */
+                        published?: boolean;
+                        /** @description The URLs to use to access the API */
+                        urls?: {
+                            /** @description The URL to use to invoke the API */
+                            api?: string;
+                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
+                            openapi?: string;
+                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
+                            ui?: string;
+                        };
+                    };
                 };
             };
             default: {
@@ -9214,7 +9280,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -9384,6 +9450,105 @@ export interface operations {
                          * @description The last update time of the identity profile
                          */
                         updated?: string;
+                    };
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    getIdentityByDID: {
+        parameters: {
+            query?: {
+                /** @description When set, the API will return the verifier for this identity */
+                fetchverifiers?: string;
+            };
+            header?: {
+                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
+                "Request-Timeout"?: string;
+            };
+            path: {
+                /** @description The identity DID */
+                did: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: date-time
+                         * @description The creation time of the identity
+                         */
+                        created?: string;
+                        /** @description A description of the identity. Part of the updatable profile information of an identity */
+                        description?: string;
+                        /** @description The DID of the identity. Unique across namespaces within a FireFly network */
+                        did?: string;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the identity
+                         */
+                        id?: string;
+                        /** @description References to the broadcast messages that established this identity and proved ownership of the associated verifiers (keys) */
+                        messages?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of claim message
+                             */
+                            claim?: string;
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the most recently applied update message. Unset if no updates have been confirmed
+                             */
+                            update?: string;
+                            /**
+                             * Format: uuid
+                             * @description The UUID of claim message. Unset for root organization identities
+                             */
+                            verification?: string;
+                        };
+                        /** @description The name of the identity. The name must be unique within the type and namespace */
+                        name?: string;
+                        /** @description The namespace of the identity. Organization and node identities are always defined in the ff_system namespace */
+                        namespace?: string;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the parent identity. Unset for root organization identities
+                         */
+                        parent?: string;
+                        /** @description A set of metadata for the identity. Part of the updatable profile information of an identity */
+                        profile?: any;
+                        /**
+                         * @description The type of the identity
+                         * @enum {string}
+                         */
+                        type?: "org" | "node" | "custom";
+                        /**
+                         * Format: date-time
+                         * @description The last update time of the identity profile
+                         */
+                        updated?: string;
+                        /** @description The verifiers, such as blockchain signing keys, that have been bound to this identity and can be used to prove data orignates from that identity */
+                        verifiers?: {
+                            /**
+                             * @description The type of the verifier
+                             * @enum {string}
+                             */
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
+                            value?: string;
+                        }[];
                     };
                 };
             };
@@ -9765,7 +9930,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     }[];
@@ -11667,159 +11832,6 @@ export interface operations {
             };
         };
     };
-    putContractAPINamespace: {
-        parameters: {
-            query?: {
-                /** @description When true the HTTP request blocks until the message is confirmed */
-                confirm?: string;
-            };
-            header?: {
-                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
-                "Request-Timeout"?: string;
-            };
-            path: {
-                /** @description The name of the contract API */
-                id: string;
-                /** @description The namespace which scopes this request */
-                ns: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /** @description Reference to the FireFly Interface definition associated with the contract API */
-                    interface?: {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the FireFly interface
-                         */
-                        id?: string | null;
-                        /** @description The name of the FireFly interface */
-                        name?: string;
-                        /** @description The version of the FireFly interface */
-                        version?: string;
-                    } | null;
-                    /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                    location?: any;
-                    /** @description The name that is used in the URL to access the API */
-                    name?: string;
-                    /** @description The published name of the API within the multiparty network */
-                    networkName?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Success */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the contract API
-                         */
-                        id?: string;
-                        /** @description Reference to the FireFly Interface definition associated with the contract API */
-                        interface?: {
-                            /**
-                             * Format: uuid
-                             * @description The UUID of the FireFly interface
-                             */
-                            id?: string;
-                            /** @description The name of the FireFly interface */
-                            name?: string;
-                            /** @description The version of the FireFly interface */
-                            version?: string;
-                        };
-                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                        location?: any;
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the broadcast message that was used to publish this API to the network
-                         */
-                        message?: string;
-                        /** @description The name that is used in the URL to access the API */
-                        name?: string;
-                        /** @description The namespace of the contract API */
-                        namespace?: string;
-                        /** @description The published name of the API within the multiparty network */
-                        networkName?: string;
-                        /** @description Indicates if the API is published to other members of the multiparty network */
-                        published?: boolean;
-                        /** @description The URLs to use to access the API */
-                        urls?: {
-                            /** @description The URL to use to invoke the API */
-                            api?: string;
-                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
-                            openapi?: string;
-                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
-                            ui?: string;
-                        };
-                    };
-                };
-            };
-            /** @description Success */
-            202: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the contract API
-                         */
-                        id?: string;
-                        /** @description Reference to the FireFly Interface definition associated with the contract API */
-                        interface?: {
-                            /**
-                             * Format: uuid
-                             * @description The UUID of the FireFly interface
-                             */
-                            id?: string;
-                            /** @description The name of the FireFly interface */
-                            name?: string;
-                            /** @description The version of the FireFly interface */
-                            version?: string;
-                        };
-                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
-                        location?: any;
-                        /**
-                         * Format: uuid
-                         * @description The UUID of the broadcast message that was used to publish this API to the network
-                         */
-                        message?: string;
-                        /** @description The name that is used in the URL to access the API */
-                        name?: string;
-                        /** @description The namespace of the contract API */
-                        namespace?: string;
-                        /** @description The published name of the API within the multiparty network */
-                        networkName?: string;
-                        /** @description Indicates if the API is published to other members of the multiparty network */
-                        published?: boolean;
-                        /** @description The URLs to use to access the API */
-                        urls?: {
-                            /** @description The URL to use to invoke the API */
-                            api?: string;
-                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
-                            openapi?: string;
-                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
-                            ui?: string;
-                        };
-                    };
-                };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
     deleteContractAPINamespace: {
         parameters: {
             query?: never;
@@ -13085,6 +13097,159 @@ export interface operations {
                 };
                 content: {
                     "application/json": any;
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    putContractAPINamespace: {
+        parameters: {
+            query?: {
+                /** @description When true the HTTP request blocks until the message is confirmed */
+                confirm?: string;
+            };
+            header?: {
+                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
+                "Request-Timeout"?: string;
+            };
+            path: {
+                /** @description The ID of the contract API */
+                id: string;
+                /** @description The namespace which scopes this request */
+                ns: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /** @description Reference to the FireFly Interface definition associated with the contract API */
+                    interface?: {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the FireFly interface
+                         */
+                        id?: string | null;
+                        /** @description The name of the FireFly interface */
+                        name?: string;
+                        /** @description The version of the FireFly interface */
+                        version?: string;
+                    } | null;
+                    /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                    location?: any;
+                    /** @description The name that is used in the URL to access the API */
+                    name?: string;
+                    /** @description The published name of the API within the multiparty network */
+                    networkName?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the contract API
+                         */
+                        id?: string;
+                        /** @description Reference to the FireFly Interface definition associated with the contract API */
+                        interface?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the FireFly interface
+                             */
+                            id?: string;
+                            /** @description The name of the FireFly interface */
+                            name?: string;
+                            /** @description The version of the FireFly interface */
+                            version?: string;
+                        };
+                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                        location?: any;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the broadcast message that was used to publish this API to the network
+                         */
+                        message?: string;
+                        /** @description The name that is used in the URL to access the API */
+                        name?: string;
+                        /** @description The namespace of the contract API */
+                        namespace?: string;
+                        /** @description The published name of the API within the multiparty network */
+                        networkName?: string;
+                        /** @description Indicates if the API is published to other members of the multiparty network */
+                        published?: boolean;
+                        /** @description The URLs to use to access the API */
+                        urls?: {
+                            /** @description The URL to use to invoke the API */
+                            api?: string;
+                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
+                            openapi?: string;
+                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
+                            ui?: string;
+                        };
+                    };
+                };
+            };
+            /** @description Success */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the contract API
+                         */
+                        id?: string;
+                        /** @description Reference to the FireFly Interface definition associated with the contract API */
+                        interface?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the FireFly interface
+                             */
+                            id?: string;
+                            /** @description The name of the FireFly interface */
+                            name?: string;
+                            /** @description The version of the FireFly interface */
+                            version?: string;
+                        };
+                        /** @description If this API is tied to an individual instance of a smart contract, this field can include a blockchain specific contract identifier. For example an Ethereum contract address, or a Fabric chaincode name and channel */
+                        location?: any;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the broadcast message that was used to publish this API to the network
+                         */
+                        message?: string;
+                        /** @description The name that is used in the URL to access the API */
+                        name?: string;
+                        /** @description The namespace of the contract API */
+                        namespace?: string;
+                        /** @description The published name of the API within the multiparty network */
+                        networkName?: string;
+                        /** @description Indicates if the API is published to other members of the multiparty network */
+                        published?: boolean;
+                        /** @description The URLs to use to access the API */
+                        urls?: {
+                            /** @description The URL to use to invoke the API */
+                            api?: string;
+                            /** @description The URL to download the OpenAPI v3 (Swagger) description for the API generated in JSON or YAML format */
+                            openapi?: string;
+                            /** @description The URL to use in a web browser to access the SwaggerUI explorer/exerciser for the API */
+                            ui?: string;
+                        };
+                    };
                 };
             };
             default: {
@@ -17698,7 +17863,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -17871,6 +18036,107 @@ export interface operations {
                          * @description The last update time of the identity profile
                          */
                         updated?: string;
+                    };
+                };
+            };
+            default: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    getIdentityByDIDNamespace: {
+        parameters: {
+            query?: {
+                /** @description When set, the API will return the verifier for this identity */
+                fetchverifiers?: string;
+            };
+            header?: {
+                /** @description Server-side request timeout (milliseconds, or set a custom suffix like 10s) */
+                "Request-Timeout"?: string;
+            };
+            path: {
+                /** @description The identity DID */
+                did: string;
+                /** @description The namespace which scopes this request */
+                ns: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        /**
+                         * Format: date-time
+                         * @description The creation time of the identity
+                         */
+                        created?: string;
+                        /** @description A description of the identity. Part of the updatable profile information of an identity */
+                        description?: string;
+                        /** @description The DID of the identity. Unique across namespaces within a FireFly network */
+                        did?: string;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the identity
+                         */
+                        id?: string;
+                        /** @description References to the broadcast messages that established this identity and proved ownership of the associated verifiers (keys) */
+                        messages?: {
+                            /**
+                             * Format: uuid
+                             * @description The UUID of claim message
+                             */
+                            claim?: string;
+                            /**
+                             * Format: uuid
+                             * @description The UUID of the most recently applied update message. Unset if no updates have been confirmed
+                             */
+                            update?: string;
+                            /**
+                             * Format: uuid
+                             * @description The UUID of claim message. Unset for root organization identities
+                             */
+                            verification?: string;
+                        };
+                        /** @description The name of the identity. The name must be unique within the type and namespace */
+                        name?: string;
+                        /** @description The namespace of the identity. Organization and node identities are always defined in the ff_system namespace */
+                        namespace?: string;
+                        /**
+                         * Format: uuid
+                         * @description The UUID of the parent identity. Unset for root organization identities
+                         */
+                        parent?: string;
+                        /** @description A set of metadata for the identity. Part of the updatable profile information of an identity */
+                        profile?: any;
+                        /**
+                         * @description The type of the identity
+                         * @enum {string}
+                         */
+                        type?: "org" | "node" | "custom";
+                        /**
+                         * Format: date-time
+                         * @description The last update time of the identity profile
+                         */
+                        updated?: string;
+                        /** @description The verifiers, such as blockchain signing keys, that have been bound to this identity and can be used to prove data orignates from that identity */
+                        verifiers?: {
+                            /**
+                             * @description The type of the verifier
+                             * @enum {string}
+                             */
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
+                            value?: string;
+                        }[];
                     };
                 };
             };
@@ -18260,7 +18526,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     }[];
@@ -20015,7 +20281,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -20116,7 +20382,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -21647,7 +21913,7 @@ export interface operations {
                                  * @description The type of the verifier
                                  * @enum {string}
                                  */
-                                type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                                type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                                 /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                                 value?: string;
                             }[];
@@ -25781,7 +26047,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     }[];
@@ -25840,7 +26106,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     };
@@ -25874,7 +26140,7 @@ export interface operations {
                      * @description The type of the verifier
                      * @enum {string}
                      */
-                    type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                    type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                     /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                     value?: string;
                 };
@@ -25892,7 +26158,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     };
@@ -26122,7 +26388,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -26221,7 +26487,7 @@ export interface operations {
                              * @description The type of the verifier
                              * @enum {string}
                              */
-                            type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                            type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                             /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                             value?: string;
                         }[];
@@ -27714,7 +27980,7 @@ export interface operations {
                                  * @description The type of the verifier
                                  * @enum {string}
                                  */
-                                type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                                type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                                 /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                                 value?: string;
                             }[];
@@ -31766,7 +32032,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     }[];
@@ -31823,7 +32089,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     };
@@ -31854,7 +32120,7 @@ export interface operations {
                      * @description The type of the verifier
                      * @enum {string}
                      */
-                    type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                    type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                     /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                     value?: string;
                 };
@@ -31872,7 +32138,7 @@ export interface operations {
                          * @description The type of the verifier
                          * @enum {string}
                          */
-                        type?: "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
+                        type?: "cardano_address" | "ethereum_address" | "tezos_address" | "fabric_msp_id" | "dx_peer_id";
                         /** @description The verifier string, such as an Ethereum address, or Fabric MSP identifier */
                         value?: string;
                     };

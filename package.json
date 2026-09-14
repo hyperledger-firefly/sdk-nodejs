@@ -1,6 +1,6 @@
 {
   "name": "@hyperledger/firefly-sdk",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "Client SDK for Hyperledger FireFly",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
