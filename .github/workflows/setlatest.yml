@@ -18,9 +18,6 @@ jobs:
     steps:
       - uses: actions/setup-node@v5
         with:
-          node-version: '16.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
-      # Ensure npm 11.5.1 or later required by trusted publishing
-      - name: Update npm
-        run: npm install -g npm@11.5.1
       - run: npm dist-tag add @hyperledger/firefly-sdk@${{ inputs.version }} latest

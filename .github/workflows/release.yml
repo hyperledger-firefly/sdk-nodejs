@@ -16,10 +16,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v5
         with:
-          node-version: '16.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
-      # Ensure npm 11.5.1 or later required by trusted publishing
-      - name: Update npm
-        run: npm install -g npm@11.5.1
       - run: npm ci
       - run: npm publish
