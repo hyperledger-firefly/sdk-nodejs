@@ -51,9 +51,9 @@ npm run schema
 There are multiple Git repos making up the Hyperledger FireFly project. Some others
 that may be helpful to reference:
 
-- Core - https://github.com/hyperledger/firefly
-- Command Line Interface (CLI) - https://github.com/hyperledger/firefly-cli
-- FireFly Sandbox - https://github.com/hyperledger/firefly-sandbox
+- Core - https://github.com/hyperledger-firefly/firefly
+- Command Line Interface (CLI) - https://github.com/hyperledger-firefly/firefly-cli
+- FireFly Sandbox - https://github.com/hyperledger-firefly/firefly-sandbox
 
 ## Contributing
 
