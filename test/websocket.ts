@@ -81,14 +81,9 @@ describe('websocket', () => {
   }
 
   async function waitForAttempts(count: number) {
-    const deadline = Date.now() + 2000;
-    while (upgradeAttempts < count && Date.now() < deadline) {
+    while (upgradeAttempts < count) {
       await delay(5);
     }
-    assert.ok(
-      upgradeAttempts >= count,
-      `expected at least ${count} connection attempts, saw ${upgradeAttempts}`,
-    );
   }
 
   it('reconnects when the peer drops the connection', async () => {

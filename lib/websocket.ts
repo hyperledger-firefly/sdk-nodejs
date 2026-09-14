@@ -30,7 +30,7 @@ export class FireFlyWebSocket {
   private readonly logger = new Logger(FireFlyWebSocket.name);
 
   private socket?: WebSocket;
-  private closed? = () => {};
+  private notifyClosed? = () => {};
   private pingTimer?: NodeJS.Timeout;
   private disconnectTimer?: NodeJS.Timeout;
   private reconnectTimer?: NodeJS.Timeout;
@@ -64,7 +64,7 @@ export class FireFlyWebSocket {
       auth,
       handshakeTimeout: this.options.heartbeatInterval,
     }));
-    this.closed = undefined;
+    this.notifyClosed = undefined;
 
     socket
       .on('open', () => {
@@ -94,9 +94,9 @@ export class FireFlyWebSocket {
         this.logger.error('Error', err.stack);
       })
       .on('close', () => {
-        if (this.closed) {
+        if (this.notifyClosed) {
           this.logger.log('Closed');
-          this.closed(); // do this after all logging
+          this.notifyClosed(); // do this after all logging
         } else {
           this.disconnectDetected = true;
           this.reconnect('Closed by peer');
@@ -189,7 +189,7 @@ export class FireFlyWebSocket {
 
   async close(wait?: boolean): Promise<void> {
     const closedPromise = new Promise<void>((resolve) => {
-      this.closed = resolve;
+      this.notifyClosed = resolve;
     });
     // Closing is final until connect() is called again. Without this, a reconnect that was
     // already scheduled still fires, and a caller that has dropped its reference to this
