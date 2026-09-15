@@ -1,6 +1,6 @@
 # FireFly Node.js SDK
 
-![version](https://img.shields.io/github/package-json/v/hyperledger/firefly-sdk-nodejs?label=firefly-sdk-nodejs)
+![version](https://img.shields.io/github/package-json/v/hyperledger/sdk-nodejs?label=sdk-nodejs)
 [![FireFly Documentation](https://img.shields.io/static/v1?label=FireFly&message=documentation&color=informational)](https://hyperledger.github.io/firefly/latest)
 
 ![Hyperledger FireFly](./images/hyperledger_firefly_logo.png)

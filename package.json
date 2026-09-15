@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyperledger-firefly/firefly-sdk-nodejs.git"
+    "url": "git+https://github.com/hyperledger-firefly/sdk-nodejs.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/hyperledger-firefly/firefly-sdk-nodejs/issues"
+    "url": "https://github.com/hyperledger-firefly/sdk-nodejs/issues"
   },
-  "homepage": "https://github.com/hyperledger-firefly/firefly-sdk-nodejs#readme",
+  "homepage": "https://github.com/hyperledger-firefly/sdk-nodejs#readme",
   "devDependencies": {
     "@types/mocha": "^9.1.1",
     "@types/sinon": "^10.0.13",
