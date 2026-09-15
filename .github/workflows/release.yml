@@ -3,6 +3,7 @@ name: npm Release
 on:
   release:
     types: [released, prereleased]
+  workflow_dispatch:
 
 permissions:
   id-token: write  # Required for OIDC
