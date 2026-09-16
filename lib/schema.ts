@@ -3396,12 +3396,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewContractAPI: {
@@ -3440,6 +3434,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the API within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -3546,12 +3542,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractAPIByName: {
@@ -3620,12 +3610,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractAPI: {
@@ -3651,12 +3635,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -3805,12 +3783,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -4020,12 +3992,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractAPIListeners: {
@@ -4180,12 +4146,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractAPIListeners: {
@@ -4337,12 +4297,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractAPIPublish: {
@@ -4366,6 +4320,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -4631,12 +4587,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -4681,12 +4631,6 @@ export interface operations {
                     "application/json": any;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     putContractAPI: {
@@ -4726,6 +4670,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the API within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -4831,12 +4777,6 @@ export interface operations {
                         };
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -4952,12 +4892,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getBatchByID: {
@@ -5038,12 +4972,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postBatchCancel: {
@@ -5073,12 +5001,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -5174,12 +5096,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getBlockchainEventByID: {
@@ -5246,12 +5162,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getChartHistogram: {
@@ -5301,12 +5211,6 @@ export interface operations {
                         }[];
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -5445,12 +5349,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -5620,12 +5518,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewContractInterface: {
@@ -5705,6 +5597,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the FFI within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                     /** @description A version for the FFI - use of semantic versioning such as 'v1.0.1' is encouraged */
                     version?: string;
                 };
@@ -5841,12 +5735,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -5999,12 +5887,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractInterface: {
@@ -6030,12 +5912,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -6190,12 +6066,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractInterfacePublish: {
@@ -6221,6 +6091,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -6487,12 +6359,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postGenerateContractInterface: {
@@ -6652,12 +6518,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -6906,12 +6766,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractListeners: {
@@ -7060,12 +6914,6 @@ export interface operations {
                         topic?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -7262,12 +7110,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractListenerByNameOrID: {
@@ -7388,12 +7230,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractListener: {
@@ -7419,12 +7255,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -7533,12 +7363,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractQuery: {
@@ -7620,12 +7444,6 @@ export interface operations {
                 content: {
                     "application/json": any;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -7739,12 +7557,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postData: {
@@ -7853,12 +7665,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataByID: {
@@ -7935,12 +7741,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteData: {
@@ -7966,12 +7766,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8056,12 +7850,6 @@ export interface operations {
                     "application/json": string;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postDataBlobPublish: {
@@ -8144,12 +7932,6 @@ export interface operations {
                         value?: any;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8339,12 +8121,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataValue: {
@@ -8427,12 +8203,6 @@ export interface operations {
                 content: {
                     "application/json": string;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8517,12 +8287,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataSubPaths: {
@@ -8548,12 +8312,6 @@ export interface operations {
                 content: {
                     "application/json": string[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8636,12 +8394,6 @@ export interface operations {
                         version?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8762,12 +8514,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDatatypeByName: {
@@ -8829,12 +8575,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -8932,12 +8672,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getEventByID: {
@@ -9006,12 +8740,6 @@ export interface operations {
                         type?: "transaction_submitted" | "message_confirmed" | "message_rejected" | "datatype_confirmed" | "identity_confirmed" | "identity_updated" | "token_pool_confirmed" | "token_pool_op_failed" | "token_transfer_confirmed" | "token_transfer_op_failed" | "token_approval_confirmed" | "token_approval_op_failed" | "contract_interface_confirmed" | "contract_api_confirmed" | "blockchain_event_received" | "blockchain_invoke_op_succeeded" | "blockchain_invoke_op_failed" | "blockchain_contract_deploy_op_succeeded" | "blockchain_contract_deploy_op_failed";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -9091,12 +8819,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getGroupByHash: {
@@ -9154,12 +8876,6 @@ export interface operations {
                         namespace?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -9286,12 +9002,6 @@ export interface operations {
                         }[];
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -9453,12 +9163,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityByDID: {
@@ -9552,12 +9256,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityByID: {
@@ -9640,12 +9338,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -9802,12 +9494,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityDID: {
@@ -9855,12 +9541,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -9935,12 +9615,6 @@ export interface operations {
                         value?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -10129,12 +9803,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgByID: {
@@ -10311,12 +9979,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgData: {
@@ -10392,12 +10054,6 @@ export interface operations {
                         value?: any;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -10494,12 +10150,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgTxn: {
@@ -10547,12 +10197,6 @@ export interface operations {
                         type?: "none" | "unpinned" | "batch_pin" | "network_action" | "token_pool" | "token_transfer" | "contract_deploy" | "contract_invoke" | "contract_invoke_pin" | "token_approval" | "data_publish";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -10840,12 +10484,6 @@ export interface operations {
                         txid?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -11161,12 +10799,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewMessageRequestReply: {
@@ -11406,12 +11038,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNamespaces: {
@@ -11454,12 +11080,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNamespace: {
@@ -11497,12 +11117,6 @@ export interface operations {
                         networkName?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -11595,12 +11209,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewContractAPINamespace: {
@@ -11642,6 +11250,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the API within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -11748,12 +11358,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractAPIByNameNamespace: {
@@ -11824,12 +11428,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractAPINamespace: {
@@ -11857,12 +11455,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -12013,12 +11605,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -12274,12 +11860,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractAPIListenersNamespace: {
@@ -12435,12 +12015,6 @@ export interface operations {
                         topic?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -12640,12 +12214,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractAPIPublishNamespace: {
@@ -12671,6 +12239,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -12936,12 +12506,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -13099,12 +12663,6 @@ export interface operations {
                     "application/json": any;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     putContractAPINamespace: {
@@ -13146,6 +12704,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the API within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -13251,12 +12811,6 @@ export interface operations {
                         };
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -13375,12 +12929,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getBatchByIDNamespace: {
@@ -13463,12 +13011,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postBatchCancelNamespace: {
@@ -13500,12 +13042,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -13604,12 +13140,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getBlockchainEventByIDNamespace: {
@@ -13678,12 +13208,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getChartHistogramNamespace: {
@@ -13735,12 +13259,6 @@ export interface operations {
                         }[];
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -13882,12 +13400,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -14060,12 +13572,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewContractInterfaceNamespace: {
@@ -14148,6 +13654,8 @@ export interface operations {
                     name?: string;
                     /** @description The published name of the FFI within the multiparty network */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                     /** @description A version for the FFI - use of semantic versioning such as 'v1.0.1' is encouraged */
                     version?: string;
                 };
@@ -14284,12 +13792,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -14444,12 +13946,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractInterfaceNamespace: {
@@ -14477,12 +13973,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -14639,12 +14129,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postContractInterfacePublishNamespace: {
@@ -14672,6 +14156,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -14938,12 +14424,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postGenerateContractInterfaceNamespace: {
@@ -15106,12 +14586,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -15363,12 +14837,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractListenersNamespace: {
@@ -15520,12 +14988,6 @@ export interface operations {
                         topic?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -15725,12 +15187,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getContractListenerByNameOrIDNamespace: {
@@ -15853,12 +15309,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteContractListenerNamespace: {
@@ -15886,12 +15336,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -16002,12 +15446,6 @@ export interface operations {
                         signature?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -16161,12 +15599,6 @@ export interface operations {
                     "application/json": any;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataNamespace: {
@@ -16282,12 +15714,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postDataNamespace: {
@@ -16399,12 +15825,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataByIDNamespace: {
@@ -16483,12 +15903,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteDataNamespace: {
@@ -16516,12 +15930,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -16608,12 +16016,6 @@ export interface operations {
                     "application/json": string;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postDataBlobPublishNamespace: {
@@ -16698,12 +16100,6 @@ export interface operations {
                         value?: any;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -16895,12 +16291,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataValueNamespace: {
@@ -16985,12 +16375,6 @@ export interface operations {
                 content: {
                     "application/json": string;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17077,12 +16461,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDataSubPathsNamespace: {
@@ -17110,12 +16488,6 @@ export interface operations {
                 content: {
                     "application/json": string[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17201,12 +16573,6 @@ export interface operations {
                         version?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17330,12 +16696,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getDatatypeByNameNamespace: {
@@ -17399,12 +16759,6 @@ export interface operations {
                         version?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17505,12 +16859,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getEventByIDNamespace: {
@@ -17581,12 +16929,6 @@ export interface operations {
                         type?: "transaction_submitted" | "message_confirmed" | "message_rejected" | "datatype_confirmed" | "identity_confirmed" | "identity_updated" | "token_pool_confirmed" | "token_pool_op_failed" | "token_transfer_confirmed" | "token_transfer_op_failed" | "token_approval_confirmed" | "token_approval_op_failed" | "contract_interface_confirmed" | "contract_api_confirmed" | "blockchain_event_received" | "blockchain_invoke_op_succeeded" | "blockchain_invoke_op_failed" | "blockchain_contract_deploy_op_succeeded" | "blockchain_contract_deploy_op_failed";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17669,12 +17011,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getGroupByHashNamespace: {
@@ -17734,12 +17070,6 @@ export interface operations {
                         namespace?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -17869,12 +17199,6 @@ export interface operations {
                         }[];
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -18039,12 +17363,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityByDIDNamespace: {
@@ -18140,12 +17458,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityByIDNamespace: {
@@ -18230,12 +17542,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -18394,12 +17700,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getIdentityDIDNamespace: {
@@ -18449,12 +17749,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -18531,12 +17825,6 @@ export interface operations {
                         value?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -18728,12 +18016,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgByIDNamespace: {
@@ -18912,12 +18194,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgDataNamespace: {
@@ -18995,12 +18271,6 @@ export interface operations {
                         value?: any;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -19099,12 +18369,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getMsgTxnNamespace: {
@@ -19154,12 +18418,6 @@ export interface operations {
                         type?: "none" | "unpinned" | "batch_pin" | "network_action" | "token_pool" | "token_transfer" | "contract_deploy" | "contract_invoke" | "contract_invoke_pin" | "token_approval" | "data_publish";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -19478,12 +18736,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewMessagePrivateNamespace: {
@@ -19801,12 +19053,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewMessageRequestReplyNamespace: {
@@ -20049,12 +19295,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNetworkActionNamespace: {
@@ -20096,12 +19336,6 @@ export interface operations {
                         type?: "terminate";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -20152,12 +19386,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -20288,12 +19516,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkIdentityByDIDNamespace: {
@@ -20388,12 +19610,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -20512,12 +19728,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkNodeNamespace: {
@@ -20599,12 +19809,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -20756,12 +19960,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkOrgsNamespace: {
@@ -20878,12 +20076,6 @@ export interface operations {
                         updated?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -21048,12 +20240,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkOrgNamespace: {
@@ -21135,12 +20321,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -21292,12 +20472,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNextPinsNamespace: {
@@ -21364,12 +20538,6 @@ export interface operations {
                         nonce?: number;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -21475,12 +20643,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getOpByIDNamespace: {
@@ -21557,12 +20719,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postOpRetryNamespace: {
@@ -21637,12 +20793,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -21736,12 +20886,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postPinsRewindNamespace: {
@@ -21793,12 +20937,6 @@ export interface operations {
                         sequence?: number;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -21973,12 +21111,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getStatusBatchManagerNamespace: {
@@ -22066,12 +21198,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -22162,12 +21288,6 @@ export interface operations {
                         };
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -22355,12 +21475,6 @@ export interface operations {
                         updated?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -22643,12 +21757,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewSubscriptionNamespace: {
@@ -22930,12 +22038,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getSubscriptionByIDNamespace: {
@@ -23101,12 +22203,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteSubscriptionNamespace: {
@@ -23134,12 +22230,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -23242,12 +22332,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenAccountsNamespace: {
@@ -23293,12 +22377,6 @@ export interface operations {
                         key?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -23350,12 +22428,6 @@ export interface operations {
                         pool?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -23484,12 +22556,6 @@ export interface operations {
                         };
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -23734,12 +22800,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenBalancesNamespace: {
@@ -23815,12 +22875,6 @@ export interface operations {
                         uri?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -24078,12 +23132,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenConnectorsNamespace: {
@@ -24112,12 +23160,6 @@ export interface operations {
                         name?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -24375,12 +23417,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenPoolsNamespace: {
@@ -24527,12 +23563,6 @@ export interface operations {
                         type?: "fungible" | "nonfungible";
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -24758,12 +23788,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenPoolByNameOrIDNamespace: {
@@ -24866,12 +23890,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteTokenPoolNamespace: {
@@ -24900,12 +23918,6 @@ export interface operations {
                     "application/json": unknown;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postTokenPoolPublishNamespace: {
@@ -24931,6 +23943,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -25101,12 +24115,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenTransfersNamespace: {
@@ -25245,12 +24253,6 @@ export interface operations {
                         uri?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -25508,12 +24510,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenTransferByIDNamespace: {
@@ -25606,12 +24602,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxnsNamespace: {
@@ -25682,12 +24672,6 @@ export interface operations {
                         type?: "none" | "unpinned" | "batch_pin" | "network_action" | "token_pool" | "token_transfer" | "contract_deploy" | "contract_invoke" | "contract_invoke_pin" | "token_approval" | "data_publish";
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -25762,12 +24746,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxnBlockchainEventsNamespace: {
@@ -25835,12 +24813,6 @@ export interface operations {
                         };
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -25913,12 +24885,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxnStatusNamespace: {
@@ -25972,12 +24938,6 @@ export interface operations {
                         status?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -26053,12 +25013,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getVerifierByIDNamespace: {
@@ -26112,12 +25066,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postVerifiersResolveNamespace: {
@@ -26164,12 +25112,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNetworkAction: {
@@ -26208,12 +25150,6 @@ export interface operations {
                         type?: "terminate";
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -26262,12 +25198,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -26395,12 +25325,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkIdentityByDID: {
@@ -26493,12 +25417,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -26614,12 +25532,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkNode: {
@@ -26699,12 +25611,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -26853,12 +25759,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkOrgs: {
@@ -26972,12 +25872,6 @@ export interface operations {
                         updated?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -27139,12 +26033,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNetworkOrg: {
@@ -27224,12 +26112,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -27378,12 +26260,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getNextPins: {
@@ -27447,12 +26323,6 @@ export interface operations {
                         nonce?: number;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -27555,12 +26425,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getOpByID: {
@@ -27635,12 +26499,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postOpRetry: {
@@ -27713,12 +26571,6 @@ export interface operations {
                         updated?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -27809,12 +26661,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postPinsRewind: {
@@ -27863,12 +26709,6 @@ export interface operations {
                         sequence?: number;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -28040,12 +26880,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getStatusBatchManager: {
@@ -28130,12 +26964,6 @@ export interface operations {
                         }[];
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -28223,12 +27051,6 @@ export interface operations {
                         };
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -28413,12 +27235,6 @@ export interface operations {
                         updated?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -28698,12 +27514,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postNewSubscription: {
@@ -28982,12 +27792,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getSubscriptionByID: {
@@ -29151,12 +27955,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteSubscription: {
@@ -29182,12 +27980,6 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -29288,12 +28080,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenAccounts: {
@@ -29336,12 +28122,6 @@ export interface operations {
                         key?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -29391,12 +28171,6 @@ export interface operations {
                         pool?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -29522,12 +28296,6 @@ export interface operations {
                         };
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -29769,12 +28537,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenBalances: {
@@ -29847,12 +28609,6 @@ export interface operations {
                         uri?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -30105,12 +28861,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenConnectors: {
@@ -30136,12 +28886,6 @@ export interface operations {
                         name?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -30394,12 +29138,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenPools: {
@@ -30543,12 +29281,6 @@ export interface operations {
                         type?: "fungible" | "nonfungible";
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -30771,12 +29503,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenPoolByNameOrID: {
@@ -30877,12 +29603,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     deleteTokenPool: {
@@ -30909,12 +29629,6 @@ export interface operations {
                     "application/json": unknown;
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postTokenPoolPublish: {
@@ -30938,6 +29652,8 @@ export interface operations {
                 "application/json": {
                     /** @description An optional name to be used for publishing this definition to the multiparty network, which may differ from the local name */
                     networkName?: string;
+                    /** @description An optional list of custom topics to use for ordering of the definition broadcast message, instead of the default system topic. Each topic must be a non-empty string. Only used when the definition is published to the multiparty network */
+                    topics?: string[];
                 };
             };
         };
@@ -31108,12 +29824,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenTransfers: {
@@ -31249,12 +29959,6 @@ export interface operations {
                         uri?: string;
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -31509,12 +30213,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTokenTransferByID: {
@@ -31605,12 +30303,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxns: {
@@ -31678,12 +30370,6 @@ export interface operations {
                         type?: "none" | "unpinned" | "batch_pin" | "network_action" | "token_pool" | "token_transfer" | "contract_deploy" | "contract_invoke" | "contract_invoke_pin" | "token_approval" | "data_publish";
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -31756,12 +30442,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxnBlockchainEvents: {
@@ -31827,12 +30507,6 @@ export interface operations {
                         };
                     }[];
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -31903,12 +30577,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getTxnStatus: {
@@ -31960,12 +30628,6 @@ export interface operations {
                         status?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -32038,12 +30700,6 @@ export interface operations {
                     }[];
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     getVerifierByID: {
@@ -32095,12 +30751,6 @@ export interface operations {
                     };
                 };
             };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
         };
     };
     postVerifiersResolve: {
@@ -32143,12 +30793,6 @@ export interface operations {
                         value?: string;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
@@ -32234,12 +30878,6 @@ export interface operations {
                         enabled?: boolean;
                     };
                 };
-            };
-            default: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };
